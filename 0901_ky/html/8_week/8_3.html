@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visivility 프로퍼티</title>
+</head>
+<style>
+    span {
+        visibility: hidden;
+        color: blue;
+    }
+</style>
+<body>
+    <h3>다음 빈 곳에 숨은 단어? <button>show/hide</button></h3>
+    <hr>
+    <ul>
+        <li>I (<span>love</span>) you.</li>
+        <li>CSS is Cascaing (<span>Style</span>) Sheet.</li>
+        <li>응답하라 (<span>1988</span>).</li>
+    </ul>
+
+    <script>
+        var BUTTON = document.getElementsByTagName('button');
+
+        BUTTON[0].addEventListener("click", showHide);
+
+        function showHide() {
+            var SPAN = document.getElementsByTagName('span');
+
+            if(getComputedStyle(SPAN[0]).visibility === 'hidden') {
+                for(var i = 0; i < SPAN.length; i++) {
+                    SPAN[i].style.visibility = 'visible';
+                }
+            } else if(getComputedStyle(SPAN[0]).visibility === 'visible') {
+                for(var i = 0; i < SPAN.length; i++) {
+                    SPAN[i].style.visibility = 'hidden';
+                }
+            }
+         }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+</head>
+<style>
+    hr {border: 1px solid #000;}
+    img {animation: rotate_image 1s linear infinite;}
+    @keyframes rotate_image{
+        0% {transform: rotate(-90deg);}
+        50% {transform: rotate(90deg);}
+        100% {transform: rotate(-90deg );}
+    }
+</style>
+<body>
+    <h1>어지러워요</h1>
+    <hr>
+    <img src="../../img/bob.png" alt="">
+</body>
+</html>
