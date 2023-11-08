@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5</title>
+</head>
+<body onload="chromeChk()">
+    <h3>구글 Chrome</h3>
+    <hr>
+    <p>웹 브라우저에 움..</p>
+
+    <script>
+        function chromeChk() {
+            if(navigator.vendor.indexOf('Google') === 0) {
+                var vendorChk = '구글';
+            }
+
+            if(navigator.userAgent.indexOf('Chrome')) {
+                var userAgentChk = 'Chrome';
+            }
+
+            alert(vendorChk+' '+userAgentChk+' 브라우저 입니다.');
+        }
+    </script>
+</body>
+</html>

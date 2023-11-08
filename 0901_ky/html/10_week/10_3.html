@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 접속</title>
+</head>
+<body>
+    <select id="select" onchange="openSite(this)">
+        <option value="https://www.google.co.kr/">google</option>
+        <option value="https://www.naver.com/">naver</option>
+    </select>
+
+
+    <script>
+        function openSite(select) {
+            var site = select.options[select.selectedIndex].value;
+            window.open(site, "myWin", 'width=400,height=400');
+        }
+
+    </script>
+</body>
+</html>
