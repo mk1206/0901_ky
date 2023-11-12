@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout()/clearTimeout()</title>
+</head>
+<body onload="clockStart()">
+    <h3>div 태그에 시계 만들기</h3>
+    <hr>
+    <div id="clock"></div>
+
+    <script>
+        function clockStart() {
+            var CLCOK = document.getElementById('clock');
+            timeout(clock);
+            clearTimeout(goTime())
+        }
+
+        function timeout(obj) {
+            var current = new Date();
+            obj.innerHTML = current.toLocaleTimeString()
+            var goTime = setTimeout('timeout(clock)', 1000);
+        }
+    </script>
+</body>
+</html>

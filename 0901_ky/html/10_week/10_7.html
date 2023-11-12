@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>screen 객체</title>
+</head>
+<body onload="printScreen();">
+    <h3>screen 객체</h3>
+    <hr>
+
+
+    <script>
+        function printScreen() {
+            if(screen.width < 1280 || screen.height < 1024) {
+                alert("스크린 해상도가 낮습니다!");
+            }
+        }
+    </script>
+</body>
+</html>

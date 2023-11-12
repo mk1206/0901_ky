@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval()/clearInterval()</title>
+</head>
+<body onload="clockStartStop();">
+    <h3>div 태그에 시계 만들기</h3>
+    <hr>
+    <div id="clock" onclick="clockStartStop();"></div>
+
+
+    <script>
+        var togle = "1";
+        function clockStartStop() {
+            if(togle === "1") {
+                timerID = setInterval(startTimer, 1000);
+                togle = "0";
+            } else {
+                clearTimeout(timerID);
+                togle = "1";
+            }
+
+            function startTimer() {
+                var CLOCK = document.getElementById('clock');
+                var now = new Date();
+                var nowClock = now.toLocaleTimeString();
+                CLOCK.innerHTML = nowClock;
+            }
+        }
+    </script>
+</body>
+</html>
