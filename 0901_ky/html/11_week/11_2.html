@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진과 이름 출력</title>
+</head>
+<body>
+    <h3>사진과 이름 출력</h3>
+    <hr>
+    <canvas id="myCanvas" width="400" height="200" style="background-color:aliceblue"></canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext("2d");
+        
+        var img = new Image();
+        img.onload = function () {
+            context.drawImage(img, 20, 20, 150, 150);
+
+        context.font = "italic 50px forte";
+        context.strokeStyle="blue";
+        context.fillStyle="violet";
+        context.lineWidth = 3;
+        context.strokeText("ParkMinKyeong", 30, 150);
+        context.fillText("ParkMinKyeong", 30, 150);
+        }
+        img.src = "../../img/bob.png";
+        
+        </script>
+</body>
+</html>
