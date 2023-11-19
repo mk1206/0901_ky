@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼으로 도형 그리기</title>
+</head>
+<style>
+    section {
+        display: inline-block;
+        text-align: right;
+        line-height: 30px;
+    }
+</style>
+<body onload="load()">
+    <h3>폼으로 원호 그리기</h3>
+    <hr>
+
+    <div>
+        <section>
+            <label for="">X</label>
+            <input type="number" id="x">
+            <br>        
+            <label for="">반지름</label>
+            <input type="number" id="radius">
+            <br>
+            <label for="">시작 각도</label>
+            <input type="number" id="start">
+            <br>
+            <label for="">선굵기</label>
+            <input type="number" id="line">
+            <br>
+            <button onclick="draw()">그리기</button>
+        </section>
+        <section>
+            <label for="">Y</label>
+            <input type="number" id="y">
+            <br>
+            <label for="">방향</label>
+            <select id="direction">
+                <option value="true">시계방향</option>
+                <option value="false">반시계방향</option>
+            </select>
+            <br>
+            <label for="">끝각도</label>
+            <input type="number" id="end">
+            <br>
+            <label for="">선색</label>
+            <input type="color" id="color">
+            <br>
+            <button onclick="remove()">지우기</button>
+        </section>
+    </div>
+
+    <canvas id="myCanvas" width="550" height="200" style="background-color:aliceblue"></canvas>
+
+    <script>
+        function load() {
+            if(navigator.vendor.indexOf('Google') === 0) {
+                var vendorChk = '구글';
+            }
+
+            if(navigator.userAgent.indexOf('Chrome')) {
+                var userAgentChk = 'Chrome';
+            }
+
+            alert(vendorChk+' '+userAgentChk+' 브라우저 입니다.');
+        }
+
+        function draw() {
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext("2d");
+
+            var X = parseInt(document.getElementById('x').value);
+            var RADIUS = parseInt(document.getElementById('radius').value);
+            var START = parseInt(document.getElementById('start').value);
+            var LINE = parseInt(document.getElementById('line').value);
+            var Y = parseInt(document.getElementById('y').value);
+            var DEIRECTION = document.getElementById('direction').value;
+            var END = parseInt(document.getElementById('end').value);
+            var COLOR = document.getElementById('color').value;
+
+            context.beginPath();
+            context.strokeStyle = COLOR;
+            context.lineWidth = LINE;
+            context.arc(X, Y, RADIUS, Math.START, Math.END, DEIRECTION);
+            context.stroke();
+        }
+
+        function remove(){
+			var canvas = document.getElementById("myCanvas");
+			var context = canvas.getContext("2d");
+
+			context.clearRect(0, 0, canvas.width, canvas.height);
+		}
+
+    </script>
+</body>
+</html>

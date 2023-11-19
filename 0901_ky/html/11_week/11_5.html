@@ -12,43 +12,40 @@
     <canvas id="myCanvas" width="550" height="200" style="background-color:aliceblue"></canvas>
 
     <script>
-        var canvas, context;
-        function init() {
-            canvas = document.getElementById('myCanvas');
-            context = canvas.getContext("2d");
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    
+    var dragging = false;
+    var startX, startY;
 
-            context.lineWidth = 2;
-            context.strokeStyle = "blue";
+    canvas.addEventListener('mousedown', (e) => {
+        dragging = true;
+        startX = e.clientX - canvas.offsetLeft;
+        startY = e.clientY - canvas.offsetTop;
+    });
 
-            canvas.addEventListener("mousedown", function (e) {down(e)}, false);
-            canvas.addEventListener("mouseup", function (e) {up(e)}, false);
+    canvas.addEventListener('mousemove', (e) => {
+        if (dragging) {
+        var endX = e.clientX - canvas.offsetLeft;
+        var endY = e.clientY - canvas.offsetTop;
+
+        context.clearRect(0, 0, canvas.width, canvas.height); // 이전 선을 지웁니다.
+        context.beginPath();
+        context.strokeStyle = "blue";
+            context.lineWidth = 3;
+        context.moveTo(startX, startY);
+        context.lineTo(endX, endY);
+        context.stroke();
         }
+    });
 
-        var startX = 0, startY = 0;
-        var dragging = false;
-        function draw(curX, curY) {
-            context.beginPath();
-            context.moveTo(startX, startY);
-            context.lineTo(curX, curY);
-            context.stroke();
-        }
+    canvas.addEventListener('mouseup', () => {
+        dragging = false;
+    });
 
-        function down(e) {
-            startX = e.offsetX;
-            startY = e.offsetY;
-            dragging = true;
-            context.clearRect(0, 0, canvas.width, canvas.height);
-        }
-
-        function up(e) {
-            if(!dragging) return;
-            var curX = e.offsetX;
-            var curY = e.offsetY;
-            draw(curX, curY);
-            startX = curX;
-            startY = curY;
-            dragging = false;
-        }
+    canvas.addEventListener('mouseleave', () => {
+        dragging = false;
+    });
     </script>
 </body>
 </html>
