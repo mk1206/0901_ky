@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Text</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="background-color: silver;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext('2d');
+
+        context.font = '50pt NanumGothic';
+
+        context.fillStyle = 'blue';
+        context.fillText('hello 안녕하세요', 55, 75);
+
+        context.lineWidth = 2;
+        context.strokeStyle = 'yellow';
+        context.strokeText('hello 안녕하세요', 50, 70);
+
+    </script>
+</body>
+</html>

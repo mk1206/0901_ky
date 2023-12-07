@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curve</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="border: 1px solid red;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext("2d");
+
+        context.moveTo(220, 200);
+        context.quadraticCurveTo(300, 300, 380, 200);
+
+        context.moveTo(200, 150);
+        context.quadraticCurveTo(250, 100, 280, 150);
+        
+        context.moveTo(320, 150);
+        context.quadraticCurveTo(370, 100, 390, 150);
+
+        context.linewidth = 5;
+        context.strokeStyle = "black";
+        context.stroke();
+
+    </script>
+</body>
+</html>

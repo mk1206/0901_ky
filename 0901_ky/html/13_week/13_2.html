@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>line</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="border: 1px solid red;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext("2d");
+
+        context.beginPath();
+        context.moveTo(0, 300);
+        context.lineTo(100, 100);
+        context.lineTo(200, 250);
+        context.lineTo(250, 100);
+        context.lineTo(350, 250);
+        context.lineTo(450, 100);
+        context.lineTo(600, 300);
+
+        context.linewidth = 5;
+        context.strokeStyle = "green";
+        context.stroke();
+
+    </script>
+</body>
+</html>

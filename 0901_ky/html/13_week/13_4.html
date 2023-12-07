@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lineJoin & round</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="border: 1px solid red;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext("2d");
+
+        context.moveTo(250, 150);
+        context.lineTo(300, 50);
+        context.lineTo(350, 150);
+
+        context.lineTo(450, 150);
+        context.lineTo(380, 240);
+        
+        context.lineTo(400, 320);
+        context.lineTo(310, 250);
+        
+        context.lineTo(230, 320);
+        context.lineTo(240, 230);
+
+        context.lineTo(170, 150);
+        context.lineTo(250, 150);
+
+        context.lineJoin = "round";
+        context.lineWidth = 10;
+        context.strokeStyle = "yellow";
+        context.stroke();
+
+    </script>
+</body>
+</html>

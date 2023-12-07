@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Text</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="background-color: silver;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext('2d');
+        var myRectangle = {x:0, y: 75, width:100, height:50, borderWidth:5}
+        var flag = false;
+
+        function drawRect() {
+            context.beginPath();
+            context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
+            context.fillStyle = 'blue';
+            context.fill();
+            context.lineWidth = myRectangle.borderWidth;
+            context.strokeStyle = 'black';
+            context.stroke();
+        }
+
+        function animate() {
+            if(!flag) return;
+            if(myRectangle.x > CANVAS.width - myRectangle.width) return;
+            context.clearRect(0, 0, CANVAS.width, CANVAS.height);
+            myRectangle.x = myRectangle.x + 1;
+            myRectangle.height = myRectangle.height + 1;
+            drawRect();
+            window.setTimeout(animate, 33);
+        }
+
+        drawRect();
+
+        document.getElementById('myCanvas').addEventListener('click', function() {
+            flag = !flag;
+            animate();
+        });
+
+    </script>
+</body>
+</html>

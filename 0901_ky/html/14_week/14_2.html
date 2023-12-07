@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill 채우기</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="background-color: silver;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext('2d');
+
+        context.rect(0, 0, 550, 350);
+
+        var grd = context.createLinearGradient(100, 100, 500, 100);
+        grd.addColorStop(0, 'gray');
+        grd.addColorStop(1, 'black');
+        context.fillStyle = grd;
+        context.fill();
+
+    </script>
+</body>
+</html>

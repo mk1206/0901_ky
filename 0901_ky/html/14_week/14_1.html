@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Circle</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400" style="background-color: silver;"></canvas>
+
+    <script>
+        var CANVAS = document.getElementById('myCanvas');
+        var context = CANVAS.getContext('2d');
+
+
+        context.arc(200, 150, 100, 1, 2*Math.PI);
+        context.fillStyle = 'blue';
+        context.fill();
+
+        context.lineWidth = 2;
+        context.strokeStyle = 'black';
+        context.stroke();
+
+    </script>
+</body>
+</html>
